@@ -1,5 +1,7 @@
 import axios from "axios";
 import React, { useRef, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 //Keys
 const API_KEY = import.meta.env.VITE_UNSPLASH_API_KEY;
@@ -59,7 +61,7 @@ export const ImageGallery = () => {
             </h1>
           ) : image.total_pages === 0 ? (
             <h1 className="text-center font-medium text-2xl">
-              No Images found...😔
+              {`No Images found...😔`}
             </h1>
           ) : (
             image.results &&
