@@ -17,6 +17,9 @@ export const ImageGallery = () => {
 
   const handleClick = async (pageNumber) => {
     const inputData = inputRef.current.value;
+    if (inputData.length === 0) {
+      alert("Enter something...");
+    }
     const url = `https://api.unsplash.com/search/photos?page=${pageNumber}&query=${inputData}&client_id=${API_KEY}`;
     const response = await axios.get(url);
     setImage(response.data);
@@ -49,7 +52,7 @@ export const ImageGallery = () => {
           />
           <button
             onClick={() => handleClick(pageNumber)}
-            className="border border-black mx-5 px-5 rounded-xl active:scale-90"
+            className="mx-5 px-5 rounded-xl active:scale-90 bg-green-700 font-bold text-white text-xl hover:bg-green-900"
           >
             Search
           </button>
